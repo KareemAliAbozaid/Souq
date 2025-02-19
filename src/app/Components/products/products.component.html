@@ -1,0 +1,83 @@
+<!-- Day 2 -->
+
+<!-- <h1>Total Price : {{TotalPrice}}</h1>
+<h1>Selected Cat Id : {{SelectCatId}}</h1>
+<div class="mb-3">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="SelectCatId">
+        <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.name}}</option>
+    </select>
+</div> -->
+
+<!-- <button class="btn btn-danger btn-sm px-3 mb-3" (click)="Change()">Change Category</button> -->
+
+<!-- <div class="row row-cols-1 row-cols-md-4 g-4">
+    <ng-container *ngFor="let prd of products;let i=index ; trackBy:trackItem">
+        <div class="col" *ngIf="prd.quantity!=0">
+
+             //<div class="col" [class.d-none]="prd.catId!=SelectCatId">
+
+                <div class="card h-100 shadow-sm">
+                    <img [src]="prd.imgUrl" class="card-img-top" alt="..."
+                        style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+                    <div class="card-body" [style.background-color]="(prd.quantity==0)?'yellow':'white'">
+                        <h5 class="card-title fw-bold"
+                            style="min-height: 48px; max-height: 48px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
+                            {{i+1}} {{prd.name}}
+                        </h5>
+                        <p class="card-text mb-1">Price: <span class="text-success fw-semibold">{{prd.price}}</span></p>
+                        <p class="card-text mb-3" *ngIf="prd.quantity!=1;else lastItem">Quantity: {{prd.quantity}}</p>
+                        <ng-template #lastItem>
+                            <p>Quantity : last Item</p>
+                        </ng-template>
+                        <div class="d-flex gap-2">
+                            //#countInp  => referance || templet variable 
+                            <input type="number" #countInp class="form-control form-control-sm w-80" placeholder="Qty"
+                                min="1" max="{{prd.quantity}}">
+                            <button class="btn btn-primary btn-sm px-3"
+                                (click)="buy(countInp.value, prd.price)">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </ng-container>
+</div> -->
+
+<!-- Day 3 -->
+
+<!-- <h1>Total Price : {{TotalPrice}}</h1> -->
+<!-- <h1>Selected Cat Id : {{SelectCatId}}</h1> -->
+
+
+<!-- <button class="btn btn-danger btn-sm px-3 mb-3" (click)="Change()">Change Category</button> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    @for(prd of filteredProducts;track prd.Id;let i=$index){
+    <div class="col">
+
+        <div class="card h-100 shadow-sm" appHighLightCard="Gray" externalColor="Pink">
+            <img [src]="prd.imgUrl" class="card-img-top" alt="..."
+                style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px;">
+            <div class="card-body">
+                <h5 class="card-title fw-bold"
+                    style="min-height: 48px; max-height: 48px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: normal;">
+                    {{i+1}} {{prd.name}}
+                </h5>
+                <p class="card-text mb-1">Price: <span class="text-success fw-semibold">{{prd.price |
+                        currency:"EUR"}}</span>
+                </p>
+                <p class="card-text mb-3" *ngIf="prd.quantity!=1;else lastItem">Quantity: {{prd.quantity}}
+                </p>
+                <ng-template #lastItem>
+                    <p>Quantity : last Item</p>
+                </ng-template>
+                <div class="d-flex gap-2">
+                    <!-- //#countInp => referance || templet variable -->
+                    <input type="number" #countInp class="form-control form-control-sm w-80" placeholder="Qty" min="1"
+                        max="{{prd.quantity}}">
+                    <button class="btn btn-primary btn-sm px-3" (click)="buy(countInp.value, prd.price)">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
