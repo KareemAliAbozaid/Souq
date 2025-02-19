@@ -88,5 +88,8 @@ export class ProductServiceService {
       return this.products.filter((prd) => prd.catId == catId)
     }
   }
+  mapProdToIds(): number[] {
+    return this.products.map((prd) => prd.Id)
+  }
 
 }

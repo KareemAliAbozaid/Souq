@@ -5,11 +5,12 @@ import { Icategory } from '../../Models/icategory';
 import { FormsModule } from '@angular/forms';
 import { HighLightCardDirective } from '../../Directives/high-light-card.directive';
 import { ProductServiceService } from '../../Services/product-service.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule, HighLightCardDirective],
+  imports: [CommonModule, FormsModule, HighLightCardDirective, RouterLink],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
@@ -21,7 +22,7 @@ export class ProductsComponent implements OnChanges {
   @Input() recievedCatId: number = 0;
   @Output() onTotalPriceChanged: EventEmitter<number>
 
-  constructor(private _productServiceService: ProductServiceService) {
+  constructor(private _productServiceService: ProductServiceService, private _router: Router) {
 
     this.products = this._productServiceService.getAllProduct();
 
@@ -44,5 +45,8 @@ export class ProductsComponent implements OnChanges {
   // }
   trackItem(index: number, item: Iproduct) {
     return item.Id
+  }
+  navigationToDetails(id: number) {
+    this._router.navigateByUrl(`/Details/${id}`);
   }
 }
