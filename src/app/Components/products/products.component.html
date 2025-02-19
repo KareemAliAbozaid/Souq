@@ -72,9 +72,11 @@
                 </ng-template>
                 <div class="d-flex gap-2">
                     <!-- //#countInp => referance || templet variable -->
-                    <input type="number" #countInp class="form-control form-control-sm w-80" placeholder="Qty" min="1"
-                        max="{{prd.quantity}}">
-                    <button class="btn btn-primary btn-sm px-3" (click)="buy(countInp.value, prd.price)">Buy</button>
+                    <!-- <input type="number" #countInp class="form-control form-control-sm w-80" placeholder="Qty" min="1"
+                        max="{{prd.quantity}}"> -->
+                    <!-- <button class="btn btn-primary btn-sm px-3" (click)="buy(countInp.value, prd.price)">Buy</button> -->
+                    <!-- <button class="btn btn-primary" (click)="navigationToDetails(prd.Id)">Details</button> -->
+                    <button class="btn btn-primary" [routerLink]="['/Details',prd.Id]">Details</button>
                 </div>
             </div>
         </div>

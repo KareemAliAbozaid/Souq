@@ -6,11 +6,14 @@ import { ProductsComponent } from './Components/products/products.component';
 import { OrdersComponent } from './Components/orders/orders.component';
 import { VisionComponent } from './Components/vision/vision.component';
 import { ValuesComponent } from './Components/values/values.component';
+import { DetailsComponent } from './Components/details/details.component';
 
 export const routes: Routes = [
+    { path: '', pathMatch: 'full', redirectTo: 'Home' },
     { path: 'Home', component: HomeComponent },
     { path: 'Products', component: ProductsComponent },
     { path: 'Orders', component: OrdersComponent },
+    { path: 'Details/:id', component: DetailsComponent },
     {
         path: 'About', component: AboutUsComponent, children: [
             { path: '', pathMatch: 'full', redirectTo: 'Vision' },

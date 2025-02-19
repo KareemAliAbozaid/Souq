@@ -1,1 +1,68 @@
-<p>details works!</p>
+<button class="btn btn-secondary" (click)="Back()">Next</button>
+
+<div class="product-container">
+    <img style="width: 400px; height: 600px;" [src]="product?.imgUrl">
+    <h2> {{product?.name}}</h2>
+    <p>{{product?.price}}</p>
+    <p>{{product?.quantity}}</p>
+</div>
+
+<style>
+    .product-container {
+        width: 350px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+    }
+
+    .product-container:hover {
+        transform: scale(1.05);
+    }
+
+    img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    h2 {
+        color: #444;
+        margin-top: 10px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .price {
+        font-size: 22px;
+        color: #d9534f;
+        font-weight: bold;
+    }
+
+    .buy-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: white;
+        background: #5cb85c;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .buy-btn:hover {
+        background: #4cae4c;
+    }
+</style>
+
+<div>
+    <button class="btn btn-danger" [disabled]="currentId==arrId[0]" (click)="backPre()">Previws</button>
+    <button class="btn btn-success" [disabled]="currentId==arrId[arrId.length-1]" (click)="gONext()">Next</button>
+</div>
